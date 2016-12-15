@@ -1,12 +1,12 @@
 function pronto() {
-    document.getElementById("proximaP").addEventListener("click", proximaPag, false);
+    document.getElementById("anteriorP").addEventListener("click", anteriorPag, false);
 
 
 
 
-    function proximaPag() {
+    function anteriorPag() {
         navigator.vibrate(200);
-        location.href = 'pag2.html';
+        location.href = 'index.html';
     }
 
 }
