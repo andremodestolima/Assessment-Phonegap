@@ -1,0 +1,26 @@
+{
+  "name": "phonegap-template-hello-world",
+  "description": "> A Hello World template built with PhoneGap",
+  "main": "",
+  "authors": [
+    "PhoneGap Team"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "ecosystem:phonegap",
+    "ecosystem:cordova",
+    "cordova:template",
+    "phonegap:template"
+  ],
+  "homepage": "https://github.com/andremodestolima/TP3-phonegap",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
