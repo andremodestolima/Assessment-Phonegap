@@ -1,24 +1,24 @@
 function pronto() {
     document.getElementById("proximaP").addEventListener("click", proximaPag, false);
+    document.getElementById("entrarComFace").addEventListener("click", entrarComFace, false);
 
-    facebookConnectPlugin.login(['public_profile','email'], function(sucesso){
-        var facebook_id = sucesso.authResponse.userID;
-        localStorage.setItem('facebook_id', facebook_id);
+    entrarComFace(){
+        facebookConnectPlugin.login(['public_profile'], function(sucesso){
+            var facebook_id = sucesso.authResponse.userID;
+            localStorage.setItem('facebook_id', facebook_id);
 
-        facebookConnectPlugin.api('me', ['public_profile'], function(dados){
-            localStorage.setItem('nome', dados.name);
-            alert(JSON.stringify(dados));
-            alert(JSON.stringify(dados.name));
-            document.getElementById("nomePerfil").innerHtml = dados.name;
-            document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=small";
-        })
-    }, function(erro) { alert('Erro: '+ erro); });
+            facebookConnectPlugin.api('me', ['public_profile'], function(dados){
+                localStorage.setItem('nome', dados.name);
+                document.getElementById("nomePerfil").innerHTML = dados.name;
+                document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=large";
+            })
+        }, function(erro) { alert('Erro: '+ erro); });
+    }
 
     function proximaPag() {
         navigator.vibrate(200);
         location.href = 'pag2.html';
     }
-
 }
 
 document.addEventListener("deviceready", pronto, false);
