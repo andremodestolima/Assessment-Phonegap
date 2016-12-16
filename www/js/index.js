@@ -8,6 +8,7 @@ function pronto() {
         facebookConnectPlugin.api('me', ['public_profile'], function(dados){
             localStorage.setItem('nome', dados.name);
             alert(JSON.stringify(dados));
+            alert(JSON.stringify(dados.name));
             document.getElementById("nomePerfil").innerHtml = dados.name;
         //    document.getElementById("imagemPerfil").src = dados.cover;
             // alert(dados.cover);
