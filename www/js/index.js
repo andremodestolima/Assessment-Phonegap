@@ -10,8 +10,7 @@ function pronto() {
             alert(JSON.stringify(dados));
             alert(JSON.stringify(dados.name));
             document.getElementById("nomePerfil").innerHtml = dados.name;
-        //    document.getElementById("imagemPerfil").src = dados.cover;
-            // alert(dados.cover);
+            document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=small";
         })
     }, function(erro) { alert('Erro: '+ erro); });
 
