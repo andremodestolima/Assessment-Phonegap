@@ -1,6 +1,6 @@
 function pronto() {
     document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
-    document.getElementById("vibra").addEventListener("click", vibrar, false);
+    window.addEventListener('push', vibrar);
 
     navigator.globalization.getPreferredLanguage(
         function(lingua){

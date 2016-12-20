@@ -15,7 +15,7 @@ function pronto() {
     else if (navigator.connection.type == Connection.CELL_4G ){document.getElementById("info9").innerHTML ="Conexão 4G" }
     else if (navigator.connection.type == Connection.CELL ){document.getElementById("info9").innerHTML ="Conexão cel genérica" }
     else if(navigator.connection.type == Connection.NONE ){document.getElementById("info9").innerHTML ="Sem conexão!" }
-    document.getElementById("vibra").addEventListener("click", vibrar, false);
+    window.addEventListener('push', vibrar);
 
     function acelerometroInfo(acceleration){
         document.getElementById("acelX").innerHTML = acceleration.x;
