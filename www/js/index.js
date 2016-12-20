@@ -25,7 +25,7 @@ function pronto() {
     }
 
     function vibrar(){
-        var page= window.location.hash;
+        var page= window.location.href;
         alert(page);
         if (page == '#index'){
             alert("tela 1!!!!")
