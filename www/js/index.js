@@ -25,17 +25,14 @@ function pronto() {
     }
 
     function vibrar(){
-        var page= window.location.href;
-        alert(page);
-        if (page == '#index.html'){
+        if (window.location.href == 'file:///android_asset/www/index.html'){
             alert("tela 1!!!!")
         }
-        if(page == '#pag2.html'){
+        if(window.location.href == 'file:///android_asset/www/pag2.html'){
             alert("tela 2!!!!")
         }
         navigator.vibrate(200);
     }
-
 }
 
 document.addEventListener("deviceready", pronto, false);
