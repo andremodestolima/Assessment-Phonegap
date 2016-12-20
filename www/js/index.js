@@ -1,8 +1,7 @@
 function pronto() {
-    document.getElementById("proximaP").addEventListener("click", proximaPag, false);
-    document.getElementById("entrarComFace").addEventListener("click", entrarComFace, false);
+    document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
 
-    function entrarComFace(){
+    function entrarNoFace(){
         navigator.vibrate(200);
         facebookConnectPlugin.login(['public_profile'], function(sucesso){
             alert("login OK!!");
@@ -15,10 +14,6 @@ function pronto() {
                 document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=large";
             })
         }, function(erro) { alert('Não foi possível conectar ao Facebook: '+ erro); });
-    }
-
-    function proximaPag() {
-        location.href = 'pag2.html';
     }
 }
 
