@@ -1,71 +1,24 @@
-* {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-}
-
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:25px;
+    font-size:1.3em;
     height:100%;
-    background-color: rgba(184, 228, 8, 0.16);
+    background-color: rgb(220, 239, 227);
 }
 
 #area{
-    margin: 10% 6% 5% 6%;
+    margin: 9% 6% 9% 6%;
     padding:10%;
     border-radius: 2%;
-    background-color: rgba(119, 159, 8, 0.36);
-    height:440px;
-}
-
-label{
-    font-size: 1.7em;
-    text-transform: uppercase;
-}
-
-#nome{
-    margin:30% 0% 5% 0%;
-    font-size: 1.2em;
-}
-
-#texto{
-    font-size: 1em;
-    height:40px;
-    border-radius: 8px;
-    width: 100%;
+    background-color: rgb(202, 218, 208);
+    height:360px;
 }
 
 #botoes{
     margin: 0% 5% 0% 5%;
     height:40%;
-}
-
-button{
-    float:right;
-    margin:0%;
-    width:49%;
-    height:50px;
-    background-color: #ffa300;
-    font-weight: bold;
-    font-size:0.7em;
-}
-
-.subButton{
-    margin-top:3px;
-    padding: 12px 0px 12px 0px;
-    height:50px;
-    border-radius: 8px;
-    width: 100%;
-    background-color: rgba(210, 48, 0, 0.74);
-    font-weight: bold;
-    font-size:0.7em;
-    color: rgb(250, 248, 248);
-}
-
-.floatLeft{
-    float:left;
 }
 
 img{
