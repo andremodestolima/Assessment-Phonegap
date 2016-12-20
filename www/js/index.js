@@ -5,6 +5,7 @@ function pronto() {
     function entrarComFace(){
         navigator.vibrate(200);
         facebookConnectPlugin.login(['public_profile'], function(sucesso){
+            alert("login OK!!");
             // var facebook_id = sucesso.authResponse.userID;
             facebookConnectPlugin.api('me', ['public_profile'], function(dados){
                 alert(JSON.stringify(dados));
