@@ -15,7 +15,6 @@ function pronto() {
     function entrarNoFace(){
         navigator.vibrate(200);
         facebookConnectPlugin.login(['public_profile'], function(sucesso){
-            // var facebook_id = sucesso.authResponse.userID;
             facebookConnectPlugin.api('me', ['public_profile'], function(dados){
                 localStorage.setItem('facebook_nome', dados.name);
                 localStorage.setItem('facebook_id', dados.id);

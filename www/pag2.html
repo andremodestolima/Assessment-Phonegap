@@ -14,28 +14,33 @@
     <script type="text/javascript" src="js/ratchet.js"></script>
 </head>
 <body>
-<nav class="bar bar-tab">
-    <a class="tab-item" id="vibra" href="index.html" data-transition="fade">
-        <span class="icon icon-person"></span>
-        <span class="tab-label">Perfil</span>
-    </a>
-    <a class="tab-item active" href="#">
-        <span class="icon icon-info"></span>
-        <span class="tab-label">Infos</span>
-    </a>
-</nav>
-<div class="content">
-    <div id="area">
-        <h4 id="info1">1</h4>
-        <h4 id="info2">2</h4>
-        <h4 id="info3">3</h4>
-        <h4 id="info4">4</h4>
-        <h4 id="info5">5</h4>
-        <h4 id="info6">6</h4>
-        <h4 id="info7">7</h4>
-        <h4 id="info8">8</h4>
-        <h4 id="info9">9</h4>
+    <nav class="bar bar-tab">
+        <a class="tab-item" href="index.html" data-transition="fade">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">Perfil</span>
+        </a>
+        <a class="tab-item active" href="#">
+            <span class="icon icon-info"></span>
+            <span class="tab-label">Infos</span>
+        </a>
+    </nav>
+    <div class="content">
+        <div id="area">
+            <ul class="table-view">
+                <li class="table-view-cell">Aceleração X: <span class="badge" id="acelX"></span></li>
+                <li class="table-view-cell">Aceleração Y: <span class="badge" id="acelY"></span></li>
+                <li class="table-view-cell">Aceleração Z: <span class="badge" id="acelZ"></span></li>
+                <li class="table-view-cell">Cordova? <span class="badge" id="info1"></span></li>
+                <li class="table-view-cell">Modelo: <span class="badge" id="info2"></span></li>
+                <li class="table-view-cell">Plataforma: <span class="badge" id="info3"></span></li>
+                <li class="table-view-cell">UUID: <span class="badge" id="info4"></span></li>
+                <li class="table-view-cell">Versão: <span class="badge" id="info5"></span></li>
+                <li class="table-view-cell">Fabricante: <span class="badge" id="info6"></span></li>
+                <li class="table-view-cell">É Virtual? <span class="badge" id="info7"></span></li>
+                <li class="table-view-cell">Serial: <span class="badge" id="info8"></span></li>
+                <li class="table-view-cell">Internet: <span class="badge" id="info9"></span></li>
+            </ul>
+        </div>
     </div>
-</div>
 </body>
 </html>
