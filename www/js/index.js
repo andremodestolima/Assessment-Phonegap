@@ -1,5 +1,7 @@
 function pronto() {
     document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
+    document.getElementById("vibra").addEventListener("click", vibrar, false);
+
     navigator.globalization.getPreferredLanguage(
         function(lingua){
             if(lingua.value=="pt-BR" || lingua.value=="pt" || lingua.value=="BR" ){
@@ -21,6 +23,10 @@ function pronto() {
                 document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=large";
             })
         }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
+    }
+
+    function vibrar(){
+        navigator.vibrate(200);
     }
 }
 

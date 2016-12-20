@@ -4,15 +4,14 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     height:100%;
-    background-color: rgb(220, 239, 227);
 }
 
 #area{
-    margin: 9% 6% 9% 6%;
+    margin: 8% 4% 8% 4%;
     padding:10%;
     border-radius: 2%;
-    background-color: rgb(202, 218, 208);
-    height:80%;
+    background-color: rgb(220, 239, 227);
+    height:90%;
 }
 
 img{
