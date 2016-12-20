@@ -8,15 +8,9 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-android.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>TP3 - Página 1</title>
+    <title>TP3 - Phonegap</title>
 </head>
 <body>
-    <div id="area">
-        <img id="imagemPerfil" src="#" alt="imagem" width="100px" height="100px">
-        <h1 id="nomePerfil"></h1>
-    </div>
-    <button id="entrarComFace" type="button">Logar com Facebook</button>
-
     <nav class="bar bar-tab">
         <a class="tab-item active" href="#">
             <span class="icon icon-home"></span>
@@ -27,7 +21,13 @@
             <span class="tab-label">Profile</span>
         </a>
     </nav>
-
+    <div id="content">
+        <div id="area">
+            <img id="imagemPerfil" src="img/profile.jpg" alt="imagem">
+            <h1 id="nomePerfil"></h1>
+        </div>
+        <button id="entrarComFace" type="button">Logar com Facebook</button>
+    </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/ratchet.js"></script>
