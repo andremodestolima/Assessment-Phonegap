@@ -25,6 +25,7 @@ function pronto() {
     }
 
     function vibrar(){
+        alert("tela 1!!!!");
         navigator.vibrate(200);
     }
 }
