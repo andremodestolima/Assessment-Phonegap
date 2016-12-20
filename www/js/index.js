@@ -25,9 +25,17 @@ function pronto() {
     }
 
     function vibrar(){
-        alert("tela 1!!!!");
+        var page= window.location.hash;
+        alert(page);
+        if (page == '#index'){
+            alert("tela 1!!!!")
+        }
+        if(page == '#pag2'){
+            alert("tela 2!!!!")
+        }
         navigator.vibrate(200);
     }
+
 }
 
 document.addEventListener("deviceready", pronto, false);
