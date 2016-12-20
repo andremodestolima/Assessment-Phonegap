@@ -1,6 +1,6 @@
 function pronto() {
-    document.getElementById("info1").innerHTML = device.cordova;
-    document.getElementById("info2").innerHTML = device.model;
+    document.getElementById("info1").innerText = device.cordova;
+    document.getElementById("info2").innerText = device.model;
     document.getElementById("info3").innerHTML = device.platform;
     document.getElementById("info4").innerHTML = device.uuid;
     document.getElementById("info5").innerHTML = device.version;
