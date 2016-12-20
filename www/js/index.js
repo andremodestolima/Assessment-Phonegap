@@ -11,7 +11,7 @@ function pronto() {
                 document.getElementById("nomePerfil").innerHTML = "Bem vindo, " + dados.name + "!";
                 document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=large";
             })
-        }, function(erro) { alert('Não foi possível conectar ao Facebook!'); });
+        }, function(erro) { alert('Não foi possível concluir o login no Facebook! ' + JSON.stringify(erro)); });
     }
 }
 
