@@ -1,5 +1,6 @@
 function pronto() {
     function ratchetPronto(){
+        alert(device.model);
         document.getElementById("info1").innerText = device.cordova;
         document.getElementById("info2").innerText = device.model;
         document.getElementById("info3").innerHTML = device.platform;
