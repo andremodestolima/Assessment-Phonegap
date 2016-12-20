@@ -3,7 +3,6 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:1em;
     height:100%;
     background-color: rgb(220, 239, 227);
 }
@@ -13,7 +12,8 @@ body {
     padding:10%;
     border-radius: 2%;
     background-color: rgb(202, 218, 208);
-    height:360px;
+    height:70%;
+    font-size:1em;
 }
 
 img{

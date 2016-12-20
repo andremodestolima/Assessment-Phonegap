@@ -8,7 +8,7 @@ function pronto() {
             facebookConnectPlugin.api('me', ['public_profile'], function(dados){
                 localStorage.setItem('facebook_nome', dados.name);
                 localStorage.setItem('facebook_id', dados.id);
-                document.getElementById("nomePerfil").innerHTML = dados.name;
+                document.getElementById("nomePerfil").innerHTML = "Bem vindo, " + dados.name + "!";
                 document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=large";
             })
         }, function(erro) { alert('Não foi possível conectar ao Facebook!'); });
