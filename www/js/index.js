@@ -27,10 +27,10 @@ function pronto() {
     function vibrar(){
         var page= window.location.href;
         alert(page);
-        if (page == '#index'){
+        if (page == '#index.html'){
             alert("tela 1!!!!")
         }
-        if(page == '#pag2'){
+        if(page == '#pag2.html'){
             alert("tela 2!!!!")
         }
         navigator.vibrate(200);
