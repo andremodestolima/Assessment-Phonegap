@@ -1,5 +1,14 @@
 function pronto() {
     document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
+    navigator.globalization.getPreferredLanguage(
+        function(lingua){
+            if(lingua.value=="pt-BR" || lingua.value=="pt" || lingua.value=="BR" ){
+                document.getElementById("ola").innerHTML = "Olá Mundo!!";
+            }
+            else {document.getElementById("ola").innerHTML = "Hello World!!";}
+            ;},
+        function() {document.getElementById("ola").innerHTML = "Hello World!!";}
+    );
 
     function entrarNoFace(){
         navigator.vibrate(200);
