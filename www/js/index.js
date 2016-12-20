@@ -7,6 +7,7 @@ function pronto() {
         facebookConnectPlugin.login(['public_profile'], function(sucesso){
             // var facebook_id = sucesso.authResponse.userID;
             facebookConnectPlugin.api('me', ['public_profile'], function(dados){
+                alert(JSON.stringify(dados));
                 localStorage.setItem('facebook_nome', dados.name);
                 localStorage.setItem('facebook_id', dados.id);
                 document.getElementById("nomePerfil").innerHTML = dados.name;
