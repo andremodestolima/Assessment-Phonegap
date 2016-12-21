@@ -11,8 +11,8 @@ function pronto(){
                         perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
                         perfilLogado.senha = "---";
                         perfilLogado.email = "dadosApi.email";
-                        window.location = "Home.html";
-                        //window.location.assign("Home.html");
+                        //window.location = "Home.html";
+                        window.location.assign("Home.html");
                     })
                 }
             }, function(){});
@@ -28,8 +28,8 @@ function pronto(){
                 perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
                 perfilLogado.senha = "---";
                 perfilLogado.email = "dadosApi.email";
-                window.location = "Home.html";
-                //window.location.assign("Home.html");
+                //window.location = "Home.html";
+                window.location.assign("Home.html");
             })
         }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
     }
