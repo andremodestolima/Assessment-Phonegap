@@ -6,12 +6,13 @@ function pronto(){
         if (localStorage.getItem('facebook_nome') && localStorage.getItem('facebook_id')){
             facebookConnectPlugin.getLoginStatus(function (dados){
                 if (dados.status == "connected"){
-                    facebookConnectPlugin.api('me', ['public_profile'], function (dadosApi){
+                    facebookConnectPlugin.api('me', ['public_profile', 'email'], function (dadosApi){
                         perfilLogado.nome = dadosApi.name;
                         perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
                         perfilLogado.senha = "---";
-                        perfilLogado.email = "---";
-                        window.location.assign("Home.html");
+                        perfilLogado.email = "dadosApi.email";
+                        window.location = "Home.html";
+                        //window.location.assign("Home.html");
                     })
                 }
             }, function(){});
@@ -20,14 +21,15 @@ function pronto(){
     function entrarNoFace(){
         navigator.vibrate(200);
         facebookConnectPlugin.login(['public_profile'], function(sucesso){
-            facebookConnectPlugin.api('me', ['public_profile'], function(dados){
+            facebookConnectPlugin.api('me', ['public_profile', 'email'], function(dados){
                 localStorage.setItem('facebook_nome', dados.name);
                 localStorage.setItem('facebook_id', dados.id);
                 perfilLogado.nome = dadosApi.name;
                 perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
                 perfilLogado.senha = "---";
-                perfilLogado.email = "---";
-                window.location.assign("Home.html");
+                perfilLogado.email = "dadosApi.email";
+                window.location = "Home.html";
+                //window.location.assign("Home.html");
             })
         }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
     }
@@ -46,15 +48,20 @@ function pronto(){
             }
         );
     }
-
+    function fecharPrograma(){
+        facebookConnectPlugin.logout(function(){}, function(){});
+        navigator.app.exitApp();
+    }
     verificarLogin();
     document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
+    document.getElementById("botaoSair").addEventListener("click", fecharPrograma, false);
 
     function ratchetPronto(){
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/Home.html'){
             navigator.vibrate(200);
             verificarLingua();
             document.getElementById("BemVindo").innerHTML = "Bem-vindo ao ASSESSMENT de Phonegap, " + perfilLogado.nome + "!";
+            document.getElementById("botaoSair").addEventListener("click", fecharPrograma, false);
         }
 
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag2.html'){
@@ -82,6 +89,7 @@ function pronto(){
             var acelerometro = navigator.accelerometer.watchAcceleration(acelerometroInfo, erroAcel , { frequency: 200 });
             navigator.vibrate(200);
             function erroAcel(){}
+            document.getElementById("botaoSair").addEventListener("click", fecharPrograma, false);
         }
 
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag3.html'){
@@ -93,6 +101,8 @@ function pronto(){
 
             // id="trocarFoto"
             // id="salvarProfile"
+
+            document.getElementById("botaoSair").addEventListener("click", fecharPrograma, false);
         }
     }
 }
