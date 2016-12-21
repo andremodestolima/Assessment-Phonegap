@@ -7,7 +7,7 @@
     <author email="modesto_ligeiro@yahoo.com.br" href="http://phonegap.com">
         André Modesto Lima
     </author>
-    <content src="index.html" />
+    <content src="Home.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="16" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />

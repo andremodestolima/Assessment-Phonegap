@@ -35,10 +35,13 @@
     </a>
 </nav>
 <div class="content">
-    <div id="area">
-        <img id="imagemPerfil" src="img/profile.jpg" alt="imagem">
-        <h4 id="nomePerfil"> Por favor, faça o log-in!</h4>
-    </div>
+    <ul class="table-view">
+        <li class="table-view-cell"><img id="imagemPerfil" src="img/profile.jpg" alt="imagem"><span class="badge" id="trocarFoto"><span class="icon icon-plus"></span></span></li>
+        <li class="table-view-cell">Nome: <span class="badge" id="nome"></span></li>
+        <li class="table-view-cell">Senha: <span class="badge" id="senha"></span></li>
+        <li class="table-view-cell">E-mail: <span class="badge" id="email"></span></li>
+        <li class="table-view-cell"><button type="button" id="salvarProfile" >Salvar o perfil</button></li>
+    </ul>
 </div>
 </body>
 </html>

@@ -1,3 +1,5 @@
+var perfilLogado = { "nome":"Gessica", "senha":"bebe123", "email": "gessica@gmail.com", "foto":"img/profile.jpg" };
+
 function pronto(){
     window.addEventListener('push', ratchetPronto);
     function verificarLogin(){
@@ -27,8 +29,6 @@ function pronto(){
             }
         );
     }
-    verificarLogin();
-    verificarLingua();
 
     function ratchetPronto(){
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/index.html'){
@@ -82,7 +82,13 @@ function pronto(){
 
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag3.html'){
             navigator.vibrate(200);
-            verificarLogin();
+            document.getElementById("imagemPerfil").src = perfilLogado.foto;
+            document.getElementById("nome").innerHTML = perfilLogado.nome;
+            document.getElementById("senha").innerHTML = perfilLogado.senha;
+            document.getElementById("email").innerHTML = perfilLogado.email;
+
+            // id="trocarFoto"
+            // id="salvarProfile"
         }
     }
 }
