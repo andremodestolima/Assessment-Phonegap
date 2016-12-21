@@ -11,26 +11,33 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" type="text/css" href="css/ratchet.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Log-in</title>
+    <title>Home</title>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/ratchet.js"></script>
 </head>
 <body>
-    <nav class="bar bar-tab">
-        <a class="tab-item" id="entrarComFace" href="#">
-            <span class="icon icon-compose"></span>
-            <span class="tab-label">Log-in pelo Facebook</span>
-        </a>
-        <a class="tab-item" href="#">
-            <span class="icon icon-person"></span>
-            <span class="tab-label">Log-in</span>
-        </a>
-    </nav>
-    <div class="content">
-        <div id="area">
-
-        </div>
+<nav class="bar bar-tab">
+    <a class="tab-item active" href="#">
+        <span class="icon icon-home"></span>
+        <span class="tab-label">Home</span>
+    </a>
+    <a class="tab-item" href="pag2.html" data-transition="slide-out">
+        <span class="icon icon-info"></span>
+        <span class="tab-label">Meu Aparelho</span>
+    </a>
+    <a class="tab-item" href="pag3.html" data-transition="slide-out">
+        <span class="icon icon-person"></span>
+        <span class="tab-label">Minha Conta</span>
+    </a>
+    <a class="tab-item" href="#" id="botaoSair">
+        <span class="icon icon-close"></span>
+        <span class="tab-label">Sair</span>
+    </a>
+</nav>
+<div class="content">
+    <div id="area">
+        <h3 id="ola">...</h3>
     </div>
+</div>
 </body>
 </html>

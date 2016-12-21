@@ -34,7 +34,6 @@ function pronto(){
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/index.html'){
             navigator.vibrate(200);
             verificarLogin();
-            verificarLingua();
             function entrarNoFace(){
                 navigator.vibrate(200);
                 facebookConnectPlugin.login(['public_profile'], function(sucesso){
@@ -47,6 +46,11 @@ function pronto(){
                 }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
             }
             document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
+        }
+
+        if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/Home.html'){
+            navigator.vibrate(200);
+            verificarLingua();
         }
 
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag2.html'){
@@ -74,6 +78,11 @@ function pronto(){
             var acelerometro = navigator.accelerometer.watchAcceleration(acelerometroInfo, erroAcel , { frequency: 200 });
             navigator.vibrate(200);
             function erroAcel(){}
+        }
+
+        if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag3.html'){
+            navigator.vibrate(200);
+            verificarLogin();
         }
     }
 }

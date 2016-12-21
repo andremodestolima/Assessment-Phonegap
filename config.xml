@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="org.andremodestolima.TP3-phonegap" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>TP3 Phonegap</name>
+    <name>ASSESSMENT de Phonegap</name>
     <description>
-        Exercício TP3 de Phonegap.
+        ASSESSMENT de Phonegap.
     </description>
     <author email="modesto_ligeiro@yahoo.com.br" href="http://phonegap.com">
         André Modesto Lima
