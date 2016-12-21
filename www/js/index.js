@@ -50,7 +50,6 @@ function pronto(){
         }
 
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag2.html'){
-            alert(document.location.href.lastIndexOf( '/' ));
             document.getElementById("info1").innerHTML = device.cordova;
             document.getElementById("info2").innerHTML = device.model;
             document.getElementById("info3").innerHTML = device.platform;
