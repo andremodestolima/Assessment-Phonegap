@@ -31,8 +31,7 @@ function pronto(){
     verificarLingua();
 
     function ratchetPronto(){
-        if(window.location.href == 'file:///android_asset/www/index.html'){
-            alert(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ));
+        if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/index.html'){
             navigator.vibrate(200);
             verificarLogin();
             verificarLingua();
@@ -50,7 +49,8 @@ function pronto(){
             document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
         }
 
-        if(window.location.href == 'file:///android_asset/www/pag2.html'){
+        if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag2.html'){
+            alert(document.location.href.lastIndexOf( '/' ));
             document.getElementById("info1").innerHTML = device.cordova;
             document.getElementById("info2").innerHTML = device.model;
             document.getElementById("info3").innerHTML = device.platform;
