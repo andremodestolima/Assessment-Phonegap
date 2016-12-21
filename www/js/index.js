@@ -50,8 +50,7 @@ function pronto() {
                 document.getElementById("acelY").innerHTML = acceleration.y;
                 document.getElementById("acelZ").innerHTML = acceleration.z;
             }
-            var acelerometro = navigator.accelerometer.watchAcceleration(acelerometroInfo, alert("Erro no acelerômetro!"), { frequency: 700 });
-            alert("tela 2!!!!");
+            var acelerometro = navigator.accelerometer.watchAcceleration(acelerometroInfo, erro , { frequency: 200 });
             navigator.vibrate(200);
         }
     }
