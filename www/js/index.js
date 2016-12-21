@@ -1,33 +1,32 @@
 function pronto() {
-    document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
-    window.addEventListener('push', vibrar);
+    window.addEventListener('push', ratchetPronto);
 
-    navigator.globalization.getPreferredLanguage(
-        function(lingua){
-            if(lingua.value=="pt-BR" || lingua.value=="pt" || lingua.value=="BR" ){
-                document.getElementById("ola").innerHTML = "Olá Mundo!!";
+    function ratchetPronto(){
+        if(window.location.href == 'file:///android_asset/www/index.html'){
+            navigator.globalization.getPreferredLanguage(
+                function(lingua){
+                    if(lingua.value=="pt-BR" || lingua.value=="pt" || lingua.value=="BR" ){
+                        document.getElementById("ola").innerHTML = "Olá Mundo!!";
+                    }
+                    else {document.getElementById("ola").innerHTML = "Hello World!!";}
+                },
+                function() {document.getElementById("ola").innerHTML = "Hello World!!";}
+            );
+
+            function entrarNoFace(){
+                navigator.vibrate(200);
+                facebookConnectPlugin.login(['public_profile'], function(sucesso){
+                    facebookConnectPlugin.api('me', ['public_profile'], function(dados){
+                        localStorage.setItem('facebook_nome', dados.name);
+                        localStorage.setItem('facebook_id', dados.id);
+                        document.getElementById("nomePerfil").innerHTML = "Bem vindo, " + dados.name + "!";
+                        document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=large";
+                    })
+                }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
             }
-            else {document.getElementById("ola").innerHTML = "Hello World!!";}
-            ;},
-        function() {document.getElementById("ola").innerHTML = "Hello World!!";}
-    );
-
-    function entrarNoFace(){
-        navigator.vibrate(200);
-        facebookConnectPlugin.login(['public_profile'], function(sucesso){
-            facebookConnectPlugin.api('me', ['public_profile'], function(dados){
-                localStorage.setItem('facebook_nome', dados.name);
-                localStorage.setItem('facebook_id', dados.id);
-                document.getElementById("nomePerfil").innerHTML = "Bem vindo, " + dados.name + "!";
-                document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=large";
-            })
-        }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
-    }
-
-    function vibrar(){
-        if (window.location.href == 'file:///android_asset/www/index.html'){
-            alert("tela 1!!!!")
+            document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
         }
+
         if(window.location.href == 'file:///android_asset/www/pag2.html'){
             document.getElementById("info1").innerHTML = device.cordova;
             document.getElementById("info2").innerHTML = device.model;
@@ -50,8 +49,9 @@ function pronto() {
                 document.getElementById("acelY").innerHTML = acceleration.y;
                 document.getElementById("acelZ").innerHTML = acceleration.z;
             }
-            var acelerometro = navigator.accelerometer.watchAcceleration(acelerometroInfo, erro , { frequency: 200 });
+            var acelerometro = navigator.accelerometer.watchAcceleration(acelerometroInfo, erroAcel , { frequency: 200 });
             navigator.vibrate(200);
+            function erroAcel(){}
         }
     }
 }
