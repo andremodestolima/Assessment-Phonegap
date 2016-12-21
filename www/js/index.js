@@ -1,4 +1,4 @@
-var perfilLogado = { "nome":"Gessica", "senha":"bebe123", "email": "gessica@gmail.com", "foto":"img/profile.jpg" };
+var perfilLogado = { "nome":"", "senha":"", "email": "", "foto":"" };
 
 function pronto(){
     window.addEventListener('push', ratchetPronto);
@@ -7,12 +7,29 @@ function pronto(){
             facebookConnectPlugin.getLoginStatus(function (dados){
                 if (dados.status == "connected"){
                     facebookConnectPlugin.api('me', ['public_profile'], function (dadosApi){
-                        document.getElementById("nomePerfil").innerHTML = "Bem-vindo, " + dadosApi.name + "!";
-                        document.getElementById("imagemPerfil").src = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
+                        perfilLogado.nome = dadosApi.name;
+                        perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
+                        perfilLogado.senha = "---";
+                        perfilLogado.email = "---";
+                        window.location.assign("Home.html");
                     })
                 }
             }, function(){});
         }
+    }
+    function entrarNoFace(){
+        navigator.vibrate(200);
+        facebookConnectPlugin.login(['public_profile'], function(sucesso){
+            facebookConnectPlugin.api('me', ['public_profile'], function(dados){
+                localStorage.setItem('facebook_nome', dados.name);
+                localStorage.setItem('facebook_id', dados.id);
+                perfilLogado.nome = dadosApi.name;
+                perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
+                perfilLogado.senha = "---";
+                perfilLogado.email = "---";
+                window.location.assign("Home.html");
+            })
+        }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
     }
     function verificarLingua(){
         navigator.globalization.getPreferredLanguage(
@@ -30,27 +47,14 @@ function pronto(){
         );
     }
 
-    function ratchetPronto(){
-        if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/index.html'){
-            navigator.vibrate(200);
-            verificarLogin();
-            function entrarNoFace(){
-                navigator.vibrate(200);
-                facebookConnectPlugin.login(['public_profile'], function(sucesso){
-                    facebookConnectPlugin.api('me', ['public_profile'], function(dados){
-                        localStorage.setItem('facebook_nome', dados.name);
-                        localStorage.setItem('facebook_id', dados.id);
-                        document.getElementById("nomePerfil").innerHTML = "Bem-vindo, " + dados.name + "!";
-                        document.getElementById("imagemPerfil").src = "https://graph.facebook.com/"+dados.id+"/picture/?type=large";
-                    })
-                }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
-            }
-            document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
-        }
+    verificarLogin();
+    document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
 
+    function ratchetPronto(){
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/Home.html'){
             navigator.vibrate(200);
             verificarLingua();
+            document.getElementById("BemVindo").innerHTML = "Bem-vindo ao ASSESSMENT de Phonegap, " + perfilLogado.nome + "!";
         }
 
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag2.html'){
