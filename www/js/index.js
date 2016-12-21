@@ -32,6 +32,7 @@ function pronto(){
 
     function ratchetPronto(){
         if(window.location.href == 'file:///android_asset/www/index.html'){
+            alert(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ));
             navigator.vibrate(200);
             verificarLogin();
             verificarLingua();
