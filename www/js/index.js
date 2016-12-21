@@ -1,8 +1,9 @@
-function pronto() {
+function pronto(){
     window.addEventListener('push', ratchetPronto);
 
     function ratchetPronto(){
         if(window.location.href == 'file:///android_asset/www/index.html'){
+            navigator.vibrate(200);
             navigator.globalization.getPreferredLanguage(
                 function(lingua){
                     if(lingua.value=="pt-BR" || lingua.value=="pt" || lingua.value=="BR" ){
@@ -12,7 +13,17 @@ function pronto() {
                 },
                 function() {document.getElementById("ola").innerHTML = "Hello World!!";}
             );
-
+            if (localStorage.getItem('facebook_nome') && localStorage.getItem('facebook_id')){
+                facebookConnectPlugin.getLoginStatus(function (dados){
+                    if (dados.status == "connected"){
+                        alert("Facebook conectado!!");
+                        facebookConnectPlugin.api('me', ['public_profile'], function (dadosApi){
+                            document.getElementById("nomePerfil").innerHTML = "Bem vindo, " + dadosApi.name + "!";
+                            document.getElementById("imagemPerfil").src = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
+                        })
+                    }
+                }, function (){});
+            }
             function entrarNoFace(){
                 navigator.vibrate(200);
                 facebookConnectPlugin.login(['public_profile'], function(sucesso){
