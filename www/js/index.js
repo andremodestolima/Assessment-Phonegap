@@ -28,7 +28,7 @@ function pronto(){
                 perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
                 perfilLogado.senha = "---";
                 perfilLogado.email = "dadosApi.email";
-                PUSH({url: 'Home.html', transition: 'slide-in'});
+                window.PUSH({url: 'Home.html', transition: 'slide-in'});
             })
         }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
     }
