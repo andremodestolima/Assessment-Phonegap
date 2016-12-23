@@ -11,7 +11,7 @@ function pronto(){
                         perfilLogado.nome = dadosApi.name;
                         perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
                         perfilLogado.senha = "---";
-                        perfilLogado.email = "dadosApi.email";
+                        perfilLogado.email = dadosApi.email;
                         window.PUSH({url: 'Home.html', transition: 'slide-in'});
                     })
                 }
@@ -24,12 +24,13 @@ function pronto(){
             facebookConnectPlugin.api('me', ['public_profile', 'email'], function(dados){
                 localStorage.setItem('facebook_nome', dados.name);
                 localStorage.setItem('facebook_id', dados.id);
-                perfilLogado.nome = dadosApi.name;
-                perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
+                perfilLogado.nome = dados.name;
+                perfilLogado.foto = "https://graph.facebook.com/" + dados.id + "/picture/?type=large";
                 perfilLogado.senha = "---";
-                perfilLogado.email = "dadosApi.email";
+                perfilLogado.email = dados.email;
+                window.PUSH({url: 'Home.html', transition: 'slide-in'});
             })
-            window.PUSH({url: 'Home.html', transition: 'slide-in'});
+
         }, function(erro) { alert('Não foi possível concluir o login no Facebook! Erro: ' + JSON.stringify(erro.errorMessage)); });
     }
     function verificarLingua(){
