@@ -2,6 +2,8 @@ var perfilLogado = { "nome":"", "senha":"", "email": "", "foto":"" };
 
 function pronto(){
     window.addEventListener('push', ratchetPronto);
+    window.PUSH = PUSH;
+    window.RATCHET.push = PUSH;
     function verificarLogin(){
         if (localStorage.getItem('facebook_nome') && localStorage.getItem('facebook_id')){
             facebookConnectPlugin.getLoginStatus(function (dados){
@@ -11,7 +13,7 @@ function pronto(){
                         perfilLogado.foto = "https://graph.facebook.com/" + dadosApi.id + "/picture/?type=large";
                         perfilLogado.senha = "---";
                         perfilLogado.email = "dadosApi.email";
-                        PUSH({url: 'Home.html', transition: 'slide-in'});
+                        window.PUSH({url: 'Home.html', transition: 'slide-in'});
                     })
                 }
             }, function(){});

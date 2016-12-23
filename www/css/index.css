@@ -23,6 +23,7 @@ img{
 
 .escolherLogin{
     width:80%;
+    height:35%;
     margin:auto;
     margin-top:10%;
     margin-bottom:10%;
@@ -32,4 +33,5 @@ img{
     color: #3b3862;
     border-radius: 9px;
     border-width: 2px 3px 3px 3px;
+    font-size: 17px;
 }
