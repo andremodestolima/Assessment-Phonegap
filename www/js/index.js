@@ -17,7 +17,7 @@ function pronto(){
                 }
             }, function(){});
         }
-    }n
+    }
     function entrarNoFace(){
         navigator.vibrate(200);
         facebookConnectPlugin.login(['public_profile'], function(sucesso){
