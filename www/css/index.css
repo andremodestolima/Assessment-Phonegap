@@ -7,11 +7,11 @@ body {
 }
 
 #area{
-    margin: 17% 4% 8% 4%;
+    margin: 35% 4% 8% 4%;
     padding:10%;
     border-radius: 2%;
     background-color: rgb(220, 239, 227);
-    height:50%;
+    height:30%;
 }
 
 img{
@@ -34,7 +34,7 @@ img{
     font-size: 17px;
 }
 
-.salvarPerfil{
+#salvarProfile{
     width:88%;
     height:100%;
     margin:10% 6% 10% 6%;
