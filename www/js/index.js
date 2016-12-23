@@ -3,7 +3,6 @@ var perfilLogado = { "nome":"", "senha":"", "email": "", "foto":"" };
 function pronto(){
     window.addEventListener('push', ratchetPronto);
     window.PUSH = PUSH;
-    window.RATCHET.push = PUSH;
     function verificarLogin(){
         if (localStorage.getItem('facebook_nome') && localStorage.getItem('facebook_id')){
             facebookConnectPlugin.getLoginStatus(function (dados){
