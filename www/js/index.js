@@ -52,8 +52,78 @@ function pronto(){
         facebookConnectPlugin.logout(function(){}, function(){});
         navigator.app.exitApp();
     }
+
+    function entrarLogin(){
+        alert("Função não disponível na atual versão.");
+    }
+
+    function sucessoFoto(imageData){
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs){
+            fs.root.getFile("fotoPerfil.img", { create: true, exclusive: false }, function(fileEntry){
+                fileEntry.createWriter(function (fileWriter) {
+                    fileWriter.onwrite = function() {
+                        lerArquivo(fileEntry);
+                    };
+                    fileWriter.onerror = function(erro) {
+                        alert("Erro ao criar o arquivo: " + erro.toString());
+                    };
+                    fileWriter.write(imageData);
+                    window.localStorage.setItem("fotoPerfil", JSON.stringify(fileEntry));
+                });
+            }, arquivoErro);
+        }, fileErro);
+    }
+
+    function lerArquivo(fileEntry){
+        fileEntry.file(function (file){
+            var reader = new FileReader();
+            reader.onload = function(){
+                document.getElementById('imagemPerfil').src = "data:image/jpeg;base64,"+ this.result; };
+            reader.readAsText(file);
+        })
+    }
+
+    function fileErro(message){
+        alert('Erro no file: ' + message);
+    }
+
+    function arquivoErro(message){
+        alert('Erro no arquivo: ' + message);
+    }
+
+    function cameraErro(message) {
+        alert('Erro na camera: ' + message);
+    }
+
+    function tirarFoto()
+    {navigator.vibrate(200);
+        navigator.camera.getPicture(sucessoFoto, cameraErro, {
+            quality: 100,
+            destinationType: Camera.DestinationType.DATA_URL, // NATIVE_URI, DATA_URL, FILE_URI
+            sourceType: Camera.PictureSourceType.CAMERA,       //Camera.PictureSourceType.PHOTOLIBRARY
+            encodingType: Camera.EncodingType.JPEG,           //JPG, PNG
+            mediaType: Camera.MediaType.PICTURE,		  //VIDEO, ALLMEDIA
+            allowEdit: false,
+            correctOrientation: true,
+        });}
+
+    function escolherFoto()
+    {navigator.vibrate(200);
+        navigator.camera.getPicture(sucessoFoto, cameraErro, {
+            quality: 100,
+            destinationType: Camera.DestinationType.DATA_URL, // NATIVE_URI, DATA_URL, FILE_URI
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,       //Camera.PictureSourceType.PHOTOLIBRARY
+            encodingType: Camera.EncodingType.JPEG,           //JPG, PNG
+            mediaType: Camera.MediaType.PICTURE,		  //VIDEO, ALLMEDIA
+            allowEdit: false,
+            correctOrientation: true,
+            // targetHeight: 100,
+            // targetWidth: 100
+        });}
+
     verificarLogin();
     document.getElementById("entrarComFace").addEventListener("click", entrarNoFace, false);
+    document.getElementById("logar").addEventListener("click", entrarLogin, false);
     document.getElementById("botaoSair").addEventListener("click", fecharPrograma, false);
 
     function ratchetPronto(){
@@ -98,10 +168,7 @@ function pronto(){
             document.getElementById("nome").innerHTML = perfilLogado.nome;
             document.getElementById("senha").innerHTML = perfilLogado.senha;
             document.getElementById("email").innerHTML = perfilLogado.email;
-
-            // id="trocarFoto"
-            // id="salvarProfile"
-
+            document.getElementById("trocarFoto").addEventListener("click", tirarFoto, false);
             document.getElementById("botaoSair").addEventListener("click", fecharPrograma, false);
         }
     }
