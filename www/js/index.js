@@ -1,6 +1,24 @@
 var perfilLogado = { "nome":"", "senha":"", "email": "", "foto":"" };
+var admobid = {};
 
 function pronto(){
+    if( /(android)/i.test(navigator.userAgent) ) {
+        admobid = { // for Android
+            banner: 'ca-app-pub-6515233207832507/4849731271',
+            interstitial: 'ca-app-pub-6515233207832507/6326464471'
+        };
+    } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+        admobid = { // for iOS
+            banner: 'ca-app-pub-6515233207832507/4849731271',
+            interstitial: 'ca-app-pub-6515233207832507/6326464471'
+        };
+    } else {
+        admobid = { // for Windows Phone
+            banner: 'ca-app-pub-6515233207832507/4849731271',
+            interstitial: 'ca-app-pub-6515233207832507/6326464471'
+        };
+    }
+
     window.addEventListener('push', ratchetPronto);
     window.PUSH = PUSH;
     function verificarLogin(){
@@ -128,6 +146,15 @@ function pronto(){
 
     function ratchetPronto(){
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/Home.html'){
+            if (AdMob){
+                AdMob.createBanner({
+                    adId : admobid.banner,
+                    position : AdMob.AD_POSITION.TOP_CENTER,
+                    autoShow : true
+                });
+            }
+            if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+            if(AdMob) AdMob.showInterstitial();
             navigator.vibrate(200);
             verificarLingua();
             document.getElementById("BemVindo").innerHTML = "Bem-vindo ao ASSESSMENT de Phonegap, " + perfilLogado.nome + "!";
@@ -135,6 +162,15 @@ function pronto(){
         }
 
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag2.html'){
+            if (AdMob){
+                AdMob.createBanner({
+                    adId : admobid.banner,
+                    position : AdMob.AD_POSITION.TOP_CENTER,
+                    autoShow : true
+                });
+            }
+            if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+            if(AdMob) AdMob.showInterstitial();
             document.getElementById("info1").innerHTML = device.cordova;
             document.getElementById("info2").innerHTML = device.model;
             document.getElementById("info3").innerHTML = device.platform;
@@ -163,6 +199,15 @@ function pronto(){
         }
 
         if(document.location.href.substring( document.location.href.lastIndexOf( '/' ) ) == '/pag3.html'){
+            if (AdMob){
+                AdMob.createBanner({
+                    adId : admobid.banner,
+                    position : AdMob.AD_POSITION.TOP_CENTER,
+                    autoShow : true
+                });
+            }
+            if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+            if(AdMob) AdMob.showInterstitial();
             navigator.vibrate(200);
             document.getElementById("imagemPerfil").src = perfilLogado.foto;
             document.getElementById("nome").innerHTML = perfilLogado.nome;
