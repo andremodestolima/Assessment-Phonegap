@@ -153,8 +153,6 @@ function pronto(){
                     autoShow : true
                 });
             }
-            if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
-            if(AdMob) AdMob.showInterstitial();
             navigator.vibrate(200);
             verificarLingua();
             document.getElementById("BemVindo").innerHTML = "Bem-vindo ao ASSESSMENT de Phonegap, " + perfilLogado.nome + "!";
@@ -169,8 +167,6 @@ function pronto(){
                     autoShow : true
                 });
             }
-            if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
-            if(AdMob) AdMob.showInterstitial();
             document.getElementById("info1").innerHTML = device.cordova;
             document.getElementById("info2").innerHTML = device.model;
             document.getElementById("info3").innerHTML = device.platform;
@@ -206,8 +202,6 @@ function pronto(){
                     autoShow : true
                 });
             }
-            if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
-            if(AdMob) AdMob.showInterstitial();
             navigator.vibrate(200);
             document.getElementById("imagemPerfil").src = perfilLogado.foto;
             document.getElementById("nome").innerHTML = perfilLogado.nome;
@@ -215,6 +209,12 @@ function pronto(){
             document.getElementById("email").innerHTML = perfilLogado.email;
             document.getElementById("trocarFoto").addEventListener("click", tirarFoto, false);
             document.getElementById("botaoSair").addEventListener("click", fecharPrograma, false);
+
+            function bannerFull(){
+                if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:true} );
+            }
+
+            document.getElementById("salvarProfile").addEventListener("click", bannerFull, false);
         }
     }
 }
